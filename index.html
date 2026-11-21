@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06171a">
+  <meta name="description" content="VITAL Marine — an immersive WebGL botanical product story.">
+  <title>VITAL Marine — Into the Blue</title>
+  <style>
+    html,body{margin:0;background:#06171a;color:#f0eee5}body:not(.is-ready){overflow:hidden}
+    .loader{position:fixed;inset:0;z-index:9999;background:#06171a;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;transition:opacity .75s ease,visibility .75s ease}
+    .loader-shell{width:min(76vw,420px)}.loader-brand{font-family:Georgia,serif;font-size:28px;letter-spacing:.08em;text-align:center;margin-bottom:42px}.loader-brand sup{font:9px Arial;vertical-align:top}
+    .loader-track{height:1px;background:rgba(255,255,255,.14);overflow:hidden}.loader-fill{width:100%;height:100%;background:#cfbc8d;transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+    .loader-meta{display:flex;justify-content:space-between;margin-top:13px;font-size:9px;letter-spacing:.2em;color:#9cb8b3}.is-ready .loader{opacity:0;visibility:hidden;pointer-events:none}
+  </style>
+  <script>
+    window.__vitalProgress=4;
+    window.__setVitalProgress=function(value,label){window.__vitalProgress=Math.max(window.__vitalProgress,value);var fill=document.querySelector('.loader-fill');var count=document.querySelector('.loader-count');var copy=document.querySelector('.loader-copy');if(fill)fill.style.transform='scaleX('+(window.__vitalProgress/100)+')';if(count)count.textContent=String(Math.round(window.__vitalProgress)).padStart(2,'0')+'%';if(copy&&label)copy.textContent=label;};
+    window.__vitalLoaderTimer=setInterval(function(){if(window.__vitalProgress<72)window.__setVitalProgress(window.__vitalProgress+Math.max(.35,(72-window.__vitalProgress)*.035));},90);
+  </script>
+</head>
+<body>
+  <div class="loader" role="status" aria-live="polite"><div class="loader-shell"><div class="loader-brand">VITAL<sup>®</sup></div><div class="loader-track"><div class="loader-fill"></div></div><div class="loader-meta"><span class="loader-copy">PREPARING THE DIVE</span><span class="loader-count">04%</span></div></div></div>
+  <div id="kelp-root" aria-hidden="true"></div>
+  <canvas id="world" aria-label="A cinematic underwater scene featuring the VITAL Marine botanical formula"></canvas>
+  <div class="noise"></div>
+  <header class="nav"><a class="brand" href="#intro">VITAL<sup>®</sup></a><div class="nav-center">MARINE BOTANICALS / IMMERSIVE FORMULA</div><a href="#formula" class="nav-link">DISCOVER THE FORMULA</a></header>
+  <div class="depth-meter"><span>DEPTH / 24 M</span><span class="depth-line"></span><span>03° 42′ N</span></div>
+  <aside class="story-progress" role="progressbar" aria-label="Story progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="story-progress__rail" aria-hidden="true">
+      <span class="story-progress__track"></span>
+      <span class="story-progress__fill"></span>
+      <span class="story-progress__dot"></span>
+      <span class="story-progress__chapter is-active" data-progress-chapter="vital">VITAL</span>
+      <span class="story-progress__chapter" data-progress-chapter="ocean">OCEAN</span>
+      <span class="story-progress__chapter" data-progress-chapter="ending">ENDING</span>
+    </div>
+    <output class="story-progress__value">00%</output>
+  </aside>
+  <main id="journey">
+    <section class="panel hero" id="intro"><div class="panel-inner"><div class="hero-inner"><div class="eyebrow">DESCEND INTO VITAL</div><h1>Where nature<br>runs <em>deeper.</em></h1><p>A sensorial journey below the surface, where marine minerals meet considered botanical craft.</p></div></div><div class="scroll-cue"><span>SCROLL TO DIVE</span><div class="cue-line"></div></div><div class="chapter">SURFACE / 00 M</div></section>
+    <section class="panel panel-two" id="formula"><div class="panel-inner"><div class="copy"><div class="eyebrow">THE MARINE FORMULA</div><h2>Refined by<br><em>the current.</em></h2><p>A sculptural glass vessel, tactile mineral label and precision-finished closure — designed with the quiet authority of an object worth keeping.</p><div class="micro"><span>RECYCLED GLASS</span><span>MINERAL PAPER</span><span>BRUSHED ALLOY</span></div></div></div><div class="chapter">THERMOCLINE / 08 M</div></section>
+    <section class="panel panel-three"><div class="panel-inner"><div class="copy"><div class="eyebrow">LIGHT IN MOTION</div><h2>Alive beneath<br><em>the surface.</em></h2><p>Procedural caustics drift across the seafloor while suspended matter catches the descending light. Every frame is rendered in real time.</p><div class="micro"><span>TSL CAUSTICS</span><span>VOLUMETRIC LIGHT</span><span>PHYSICAL MATERIALS</span></div></div></div><div class="chapter">BLUE HOUR / 16 M</div></section>
+    <section class="panel panel-four"><div class="panel-inner"><div class="copy"><div class="eyebrow">RETURN RENEWED</div><h2>Depth changes<br><em>everything.</em></h2><p>A fictional product experience crafted as an independent real-time study in material, movement and atmosphere.</p><div class="seal">REAL-TIME<br>WEBGL<br>STUDY</div></div></div><div class="chapter">SEAFLOOR / 24 M</div></section>
+  </main>
+  <section class="ocean-journey" id="ocean-journey" aria-label="Cinematic kelp forest journey">
+    <div class="ocean-vignette"></div>
+    <div class="ocean-copy ocean-copy-one"><div class="eyebrow">BELOW THE FORMULA</div><h2>Enter the<br><em>living blue.</em></h2><p>The surface closes overhead. Light fragments, the current strengthens, and the forest begins to breathe.</p></div>
+    <div class="ocean-copy ocean-copy-two"><div class="eyebrow">THE KELP FOREST</div><h2>Move with<br><em>the current.</em></h2><p>Long blades bend through the water while silver schools travel independently through the scene.</p></div>
+    <div class="ocean-copy ocean-copy-three"><div class="eyebrow">OPEN WATER</div><h2>Find the<br><em>quiet beyond.</em></h2><p>The forest opens into depth. Motion softens and the final composition settles beyond the last shafts of light.</p></div>
+    <div class="ocean-depth">OCEAN JOURNEY / <span>SCROLL TO TRAVEL</span></div>
+  </section>
+  <section class="ending" id="ending">
+    <div class="ending-inner"><div class="eyebrow">THE JOURNEY CONTINUES</div><h2>BEYOND<br><em>THE SURFACE</em></h2><p>Discover a world beneath the ordinary.</p><a class="ending-cta" href="#intro">EXPLORE MORE</a></div>
+  </section>
+  <footer><span>VITAL MARINE — CONCEPT EXPERIENCE</span><span>THREE.JS TSL / GSAP SCROLLTRIGGER</span><span>2026 / INDEPENDENT STUDY</span></footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
